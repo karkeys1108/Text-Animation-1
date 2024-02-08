@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        body{
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center ;
+            background: #343f4f;
+        }
+        .Wrapper{
+            display: inline-flex;
+        }
+        .Wrapper .static{
+            color: #fff;
+            font-size: 70px;
+            font-weight: 400;
+        }
+        .Wrapper .dynamic    {
+            margin-left: 15px;
+            height: 90px;
+            line-height: 90px;
+            overflow: hidden;
+        }
+        .dynamic li{
+            list-style: none;
+            font-size: 60px;
+            color:#fc6d6d;
+            position: relative;
+            top: 0;
+            animation: slide 6s steps(4) infinite;
+        }
+        @keyframes slide{
+            100%{
+               top: -360px;
+            }
+        }
+        .dynamic li span{
+            position:relative;
+        }
+        .dynamic li span::after{
+            content:'';
+            position: absolute;
+            left: 0;
+            height: 150%;
+            width: 100%;
+            background: #343f4f;
+            border-left: 2px solid #fc6d6d;
+            animation: typing 1.5s steps(10) infinite;
+        }
+        @keyframes typing{
+            100%{
+                left:100%;
+                margin: 0 -35px 0 35px;
+            }
+        }
+    </style>
+</head>
+<body><div class="Wrapper">
+        <div class="static">I'm a </div>
+        <ul class="dynamic">
+            <li><span>Developer</span></li>
+            <li><span>Designer</span></li>
+            <li><span>Creator</span></li>
+            <li><span>Youtuber</span></li>            
+        </ul>
+</div>
+    
+</body>
+</html>
